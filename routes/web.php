@@ -45,6 +45,10 @@ Route ::get('crud', function () {
     return view('crud');
 });
 
+Route ::get('/home', function(){
+    return view('latihan1');
+});
+
 // Route::prefix('master-data')->group( function(){
 //     Route::get('/data-karyawan',[CrudController::class,'index'])->name('dashboard');
 //     Route::get('/data-kerja',[CrudController::class,'edit'])->name('dashboard');
