@@ -31,4 +31,7 @@ Vue.component('footer-component', require('./components/Footer.vue').default);
 
 const app = new Vue({
     el: '#app',
+    data: {
+      title: 'Laravel8'
+    }
 });
