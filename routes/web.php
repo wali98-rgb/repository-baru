@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route :: get('/user/{id?}/{aktif?}', function ($id = "1",$aktif = "Y") {
 //     // return view ('welcome');
-//     return "<h1>Gua anak sholeh guys $id $aktif</h1> ";
+//     return "<h1>Hello world $id $aktif</h1> ";
 // })->where('id','[a-z]*');
 
 // // Route ::view('/', 'welcome');
@@ -45,9 +45,13 @@ Route ::get('crud', function () {
     return view('crud');
 });
 
-Route ::any('/{slug1}/{slug2}', function(){
+Route::get('/{any}', function () {
     return view('latihan1');
-});
+})->where('any', '.*');
+
+// Route ::any('/{slug1}/{slug2}', function(){
+//     return view('latihan1');
+// });
 
 // Route::prefix('master-data')->group( function(){
 //     Route::get('/data-karyawan',[CrudController::class,'index'])->name('dashboard');
