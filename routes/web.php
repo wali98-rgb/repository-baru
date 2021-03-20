@@ -45,7 +45,7 @@ Route ::get('crud', function () {
     return view('crud');
 });
 
-Route ::any('/{slug}', function(){
+Route ::any('/{slug1}/{slug2}', function(){
     return view('latihan1');
 });
 
