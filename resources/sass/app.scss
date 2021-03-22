@@ -4,5 +4,10 @@
 // Variables
 @import 'variables';
 
+.active {
+  background: salmon;
+  color: #fff;
+}
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

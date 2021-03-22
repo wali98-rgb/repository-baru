@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Laravel Vue SPA</title>
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 	<style>
 		body {
 			font-family: sans-serif;
