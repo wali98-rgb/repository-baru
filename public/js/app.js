@@ -1897,8 +1897,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['name'],
+  props: ['username'],
   data: function data() {
     return {
       users: [{
@@ -1912,6 +1914,20 @@ __webpack_require__.r(__webpack_exports__);
         name: 'Fasilasido'
       }]
     };
+  },
+  methods: {
+    profile_uri: function profile_uri(name) {
+      return '/user/' + name.toLowerCase();
+    },
+    lihatuser: function lihatuser(name) {
+      // this.$router.push('/user/' +name.toLowerCase())
+      this.$router.push({
+        name: 'User',
+        params: {
+          username: name.toLowerCase()
+        }
+      });
+    }
   }
 });
 
@@ -2024,7 +2040,7 @@ var routes = [{
   component: About
 }, {
   name: 'User',
-  path: '/user/:name?',
+  path: '/user/:username?',
   component: _pages_User_vue__WEBPACK_IMPORTED_MODULE_3__.default,
   props: true
 }, {
@@ -38045,8 +38061,18 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.name
-      ? _c("section", [_c("h1", [_vm._v("Hello " + _vm._s(_vm.name) + ".")])])
+    _vm.username
+      ? _c(
+          "section",
+          [
+            _c("h1", [_vm._v("Hello " + _vm._s(_vm.username) + ".")]),
+            _vm._v(" "),
+            _c("router-link", { attrs: { to: { name: "User" } } }, [
+              _vm._v("kembali")
+            ])
+          ],
+          1
+        )
       : _c("section", [
           _c("h1", [_vm._v("Daftar User")]),
           _vm._v(" "),
@@ -38054,7 +38080,30 @@ var render = function() {
             "ul",
             _vm._l(_vm.users, function(user) {
               return _c("li", [
-                _vm._v("\n        " + _vm._s(user.name) + "\n      ")
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        if (
+                          !$event.type.indexOf("key") &&
+                          _vm._k(
+                            $event.keyCode,
+                            "pevent",
+                            undefined,
+                            $event.key,
+                            undefined
+                          )
+                        ) {
+                          return null
+                        }
+                        return _vm.lihatuser(user.name)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(user.name))]
+                )
               ])
             }),
             0
